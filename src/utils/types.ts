@@ -6,8 +6,6 @@ export type TPokemon = {
 export type TSearchData = {
   'page': string | string[];
   'perPage': string | number | string[];
-  'start': number;
-  'end': number;
   'totalPages': number;
 }
 

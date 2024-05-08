@@ -1,12 +1,29 @@
-"use client"
-import React, {useState} from 'react';
+import React from 'react';
 import Image from "next/image";
 import styles from "./page.module.css";
 import PokemonList from "./Containers/PokemonList";
-import { Search } from "./Components/Search";
+import { Search } from "../Components/Search";
+import { PaginationControls } from '@/Components/PaginationControls';
 
-export default function Home() {
-  const [searchState, setSearchState] = useState<string>('');
+const PAGE_SIZE = '20';
+
+export default async function Home({
+  searchParams,
+}: {
+  searchParams: {[key: string]: string | string[] | undefined}
+}) {
+  const page = searchParams['page'] ?? '1';
+  const perPage = searchParams['per_page'] ?? PAGE_SIZE;
+
+  const response = await fetch(`https://pokeapi.co/api/v2/pokemon/?limit=${PAGE_SIZE}&offset=${(Number(PAGE_SIZE) * (Number(page) - 1))}`);
+  const newData = await response.json();
+  const totalPageCount = Math.ceil(newData.count / Number(PAGE_SIZE));
+
+  const data = {
+    'page': page,
+    'perPage': perPage,
+    'totalPages': totalPageCount,
+  }
 
   const handleSearch = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
@@ -14,19 +31,20 @@ export default function Home() {
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchState(e.target.value)
+    // setSearchState(e.target.value)
   }
 
   return (
     <main className={styles.main}>
        <section>
-        <h1>Books</h1>
+        <h1>Pokemon</h1>
         <Search 
-          data={searchState} 
+          data={data} 
           handleSearch={handleSearch} 
           handleChange={handleChange} 
         />
-        <PokemonList />
+        <PokemonList data={newData.results}/>
+        <PaginationControls data={data} />
        </section>
     </main>
   );
