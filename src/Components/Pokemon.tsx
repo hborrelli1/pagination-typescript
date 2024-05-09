@@ -17,7 +17,7 @@ export const Pokemon = async ({name, url}: TPokemon) => {
 
   return (
     <div className={styles.pokemon} id='pokeBackground'>
-      <h2>{prettifyName(name)}</h2>
+      <h4>{prettifyName(name)}</h4>
       {imageUrl ? 
         <Image 
           alt={`${prettifyName(name)} thumbnail image`} 
