@@ -20,7 +20,7 @@ export const PaginationControls = (
 
   const page = searchParams.get('page') ?? '1';
   const perPage = searchParams.get('per_page') ?? data.perPage
-  console.log({hasNextPage, hasPrevPage})
+  
   const handlePageChange = (direction: number) => {
     router.push(`/?page=${Number(page) + direction}&per_page=${perPage}`)
   }

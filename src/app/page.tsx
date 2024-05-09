@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import Image from "next/image";
 import styles from "./page.module.css";
 import PokemonList from "./Containers/PokemonList";
@@ -40,20 +40,20 @@ export default async function Home({
 
   return (
     <main className={styles.main}>
-       <section>
         <h1>Pokemon</h1>
         <Search 
           data={data} 
           handleSearch={handleSearch} 
           handleChange={handleChange} 
         />
-        <PokemonList data={pokeData.results}/>
+        <Suspense fallback="Loading...">
+          <PokemonList data={pokeData.results}/>
+        </Suspense>
         <PaginationControls 
           data={data} 
           hasNextPage={Number(page) < totalPageCount}
           hasPrevPage={start > 0}
         />
-       </section>
     </main>
   );
 }

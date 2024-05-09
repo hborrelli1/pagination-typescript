@@ -20,3 +20,7 @@ export type TPokemonTypes = {
     name:string
   }
 }
+
+export type TPokemonTypesColors = {
+  [key: string]: string;
+}

@@ -6,7 +6,7 @@ import { Pokemon } from '../../Components/Pokemon';
 const PokemonList = ({data}: {data: TResults}) => {
 
   return (
-    <section className={styles.booksList}>
+    <section className={styles.pokemonList}>
       {data.length 
         ? data.map((poke: TPokemon) => <Pokemon key={poke.url} name={poke.name} url={poke.url} />)
         : <div>No Pokemon</div>

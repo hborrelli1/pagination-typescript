@@ -1,0 +1,25 @@
+.pokemon {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: #f1f1f1;
+  padding: 20px;
+  border-radius: 4px;
+}
+
+.pokemonTypes {
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.type {
+  padding: 5px 15px;
+  margin: 0 5px 0;
+  border-radius: 10px;
+  color: #fff;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 1px;
+}
