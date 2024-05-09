@@ -5,7 +5,7 @@ import PokemonList from "./Containers/PokemonList";
 import { Search } from "../Components/Search";
 import { PaginationControls } from '@/Components/PaginationControls';
 
-const PAGE_SIZE = '20';
+const PAGE_SIZE = '12';
 
 export default async function Home({
   searchParams,
