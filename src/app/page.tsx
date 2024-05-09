@@ -17,6 +17,7 @@ export default async function Home({
 
   const response = await fetch(`https://pokeapi.co/api/v2/pokemon/?limit=${PAGE_SIZE}&offset=${(Number(PAGE_SIZE) * (Number(page) - 1))}`);
   const pokeData = await response.json();
+  
   const totalPageCount = Math.ceil(pokeData.count / Number(PAGE_SIZE));
 
   const start = (Number(page) - 1) * Number(perPage);
@@ -36,10 +37,6 @@ export default async function Home({
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     // setSearchState(e.target.value)
   }
-  console.log('start:', start)
-  console.log('end:', end)
-  console.log('hasNextPage:', Number(page) < totalPageCount)
-  console.log('hasPrevtPage:', start > 0)
 
   return (
     <main className={styles.main}>
