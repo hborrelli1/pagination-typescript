@@ -1,0 +1,17 @@
+.appWrapper {
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: #fff;
+}
+
+.containerHeader {
+  border: 1px solid #d3d3d3;
+  border-top: unset;
+  padding: 20px;
+}
+
+.content {
+  border-top: unset;
+  border: 1px solid #d3d3d3;
+  padding: 20px;
+}
