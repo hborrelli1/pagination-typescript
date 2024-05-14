@@ -20,4 +20,5 @@
 
 .button:disabled:hover {
   background-color: #fff;
+  cursor: default;
 }

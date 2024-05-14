@@ -1,4 +1,5 @@
 import { TPokemonTypesColors } from "./types"
+
 export const pokemonTypesColors: TPokemonTypesColors = {
   normal: '#A8A77A',
   fire: '#EE8130',

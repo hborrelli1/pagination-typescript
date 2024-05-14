@@ -19,9 +19,8 @@ export default async function Home({
   const pokeData = await response.json();
   
   const totalPageCount = Math.ceil(pokeData.count / Number(PAGE_SIZE));
-
   const start = (Number(page) - 1) * Number(perPage);
-  const end = start + Number(perPage)
+  // const end = start + Number(perPage)
 
   const data = {
     'page': page,

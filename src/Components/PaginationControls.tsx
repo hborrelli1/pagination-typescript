@@ -19,11 +19,8 @@ export const PaginationControls = (
   const router = useRouter();
   const searchParams = useSearchParams();
 
-  const page = searchParams.get('page') ?? '1';
-  const perPage = searchParams.get('per_page') ?? data.perPage
-  
   const handlePageChange = (direction: number) => {
-    router.push(`/?page=${Number(page) + direction}&per_page=${perPage}`)
+    router.push(`/?page=${Number(data.page) + direction}&per_page=${data.perPage}`)
   }
 
   return (
@@ -35,7 +32,7 @@ export const PaginationControls = (
       >
         {'<'}  
       </button>
-      <div>{page} / {data.totalPages}</div>
+      <div>{data.page} / {data.totalPages}</div>
       <button 
         className={styles.button}
         disabled={!hasNextPage}
